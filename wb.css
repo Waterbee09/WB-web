@@ -14,25 +14,8 @@
     
 }
 
-/* สำหรับอุปกรณ์ที่มีความกว้างหน้าจอน้อยกว่าหรือเท่ากับ 600px (มือถือ) */
-@media (max-width: 600px) {
-    body {
-        background-color: lightblue;
-    }
-    .container {
-        padding: 10px;
-    }
-}
 
-/* สำหรับอุปกรณ์ที่มีความกว้างหน้าจอมากกว่า 600px (แท็บเล็ตหรือคอมพิวเตอร์) */
-@media (min-width: 601px) {
-    body {
-        background-color: white;
-    }
-    .container {
-        padding: 20px;
-    }
-}
+
 
 /* Navigation bar */
 nav {
@@ -164,9 +147,10 @@ nav {
 
 /* จัดตำแหน่ง "Education" กลางจอด้านขวา */
 .ed {
+    width: 100%; /* ให้กว้างเท่ากับ parent */
     flex: 1; /* กำหนดให้ฝั่งขวาเต็มพื้นที่ */
     /*text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-    padding-left: 1rem; /* เพิ่มระยะห่างจากขอบขวา */
+    /*padding-left: 1rem; /* เพิ่มระยะห่างจากขอบขวา */
     padding-top:  15rem;
 }
 
@@ -187,7 +171,91 @@ nav {
     font-family: 'Playpen Sans';
     
 }
+@media screen and (max-width: 680px) {
 
+    .textmain{
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-image: url('bg1.png');
+        background-color: #fffdf7;
+        background-attachment: fixed; /* ทำให้ภาพเลื่อนช้ากว่าเนื้อหา */
+        background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+        background-size: contain; /* ขนาดของภาพจะปรับตามขนาดภาพ (เต็มพื้นที่ แต่ไม่ครอบตัด) */
+        background-position-y: 200px; /* จัดตำแหน่งของภาพให้อยู่ตรงกลาง */
+        background-position-x: -230px;
+    }
+ 
+    .maintext {
+        display: flex;
+        flex-direction: column; /* เรียงในแนวตั้ง */
+        align-items: flex-start; /* จัดให้อยู่ชิดซ้าย */
+        box-sizing: border-box; /* ป้องกัน padding เกิน */
+    }
+    
+    .text h1 {
+        font-size: 3.5rem;
+        color: rgba(7, 7, 50, 0.855);
+        font-family: 'Knewave';
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        margin: 0 auto; /* ตั้งข้อความให้อยู่ตรงกลางแนวนอน */
+        margin-left: 1.5rem;
+    }
+    
+    .text p {
+        font-size: 0.8rem;
+        color: rgba(7, 7, 50, 0.855);
+        font-family: 'Playpen Sans';
+        text-align: center; /* จัดข้อความให้อยู่ชิดซ้าย */
+        /*margin: 1px 20px; /* ระยะห่างซ้าย-ขวา 10px */
+        
+    }
+    
+    .text .bottom {
+        align-items: left ;/* จัดปุ่มให้อยู่ตรงกลาง */
+        margin-top: 1rem;
+    }
+    
+    .ed {
+        width: 100%; /* ให้กว้างเท่ากับ parent */
+        text-align: center; /* จัดข้อความให้อยู่ชิดซ้าย */
+        padding: 0 10px; /* เพิ่มระยะ padding ซ้ายและขวา */
+        box-sizing: border-box; /* ป้องกัน padding เกิน */
+    }
+    
+    .ed h1 {
+        font-size: 1rem;
+        color: rgba(7, 7, 50, 0.855);
+        font-family: 'Playpen Sans';
+        margin-top: 2rem; /* เพิ่มระยะห่างด้านบน */
+        margin-bottom: 1rem; /* เพิ่มระยะห่างด้านล่าง */
+        margin-left: 15rem;
+    
+    }
+    
+    .ed p1 {
+        color: rgba(7, 7, 50, 0.855);
+        font-size: 0.8rem;
+        text-align: justify; /* จัดข้อความให้กระจายเต็มความกว้าง */
+        line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+        font-family: 'Playpen Sans';
+        margin: 0 10px; /* ระยะห่างซ้าย-ขวา */
+        word-wrap: break-word; /* บังคับตัดคำหากข้อความยาวเกิน */
+        
+    }
+
+    .text .bottom {
+        display: none;
+    }
+
+    .text .bottom {
+        visibility: hidden;
+    }
+    
+
+    
+}
 
 /*...............................experience...................*/
 
@@ -358,6 +426,111 @@ nav {
     font-size: 0.8rem;
 }
 
+@media screen and (max-width: 680px) {
+
+    .concon {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.2rem;
+        width: 30%; /* ทำให้กริดมีความกว้างเต็มพื้นที่ */
+        height: 30%;
+        margin: 0 auto; /* ทำให้กริดอยู่กึ่งกลางแนวนอน */
+        justify-content: center; /* จัดกริดให้อยู่ตรงกลางแนวนอน */
+    }
+
+    .conitem1, .conitem2, .conitem3 {
+        background-color: #faf7ed;
+        padding: 0.1rem 0.1rem; /* ลด padding */
+        border-radius: 10px; /* ลดมุมโค้ง */
+        width: 100%; 
+        perspective: 800px; /* ลดระยะมุมมอง */
+    }
+    
+    .conitem1 .card, .conitem2 .card, .conitem3 .card {
+        background-color: rgba(7, 7, 50, 0.855);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1),
+                    0px 1px 2px rgba(0, 0, 0, 0.06);
+    }
+    
+    /* ลดขนาดการ์ด */
+    .card .front, .card .back {
+        width: 180px; /* ลดความกว้าง */
+        height: 300px; /* ลดความสูง */
+        transform-style: preserve-3d;
+        transition: transform 0.5s ease-in-out;
+        cursor: pointer;
+    }
+    
+    /* ด้านหลังการ์ด */
+    .card .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #faf7ed;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+    
+    /* ขนาดตัวอักษรและเนื้อหา */
+    .card .front h3, .card .back h3 {
+        font-size: 0.7rem; /* ลดขนาดตัวอักษร */
+    color: #faf7ed;
+    font-weight: bold;
+    text-align: center; /* จัดข้อความตรงกลางแนวนอน */
+    font-family: 'Playpen Sans';
+
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดตรงกลางแนวนอน */
+    align-items: center; /* จัดตรงกลางแนวตั้ง */
+    height: 100%; /* ใช้ความสูงเต็มพื้นที่ของ container */
+    width: 100%;  /* ใช้ความกว้างเต็มพื้นที่ของ container */
+    }
+    
+    .card .front p, .card .back p {
+        font-size: 0.05rem; /* ลดขนาดตัวอักษรในย่อหน้า */
+        line-height: 0.5; /* ลดระยะบรรทัด */
+        padding: 0.2rem; /* ลด padding */
+        text-align: center;
+        align-items: center; /* จัดตรงกลางแนวตั้ง */
+        color: #faf7ed;
+        font-family: 'Playpen Sans';
+    }
+    
+    /* ลดขนาดและจัดภาพ */
+    .im1, .im2, .im3 {
+        display: none;
+    }
+    
+    /* เนื้อหาด้านหลัง */
+    .card .back h2 {
+        color: rgba(7, 7, 50, 0.855);
+        text-align: center;
+        padding-top: 1rem; /* ลดระยะห่างด้านบน */
+        font-family: 'Playpen Sans';
+        font-size: 0.8rem; /* ลดขนาดตัวอักษร */
+    }
+    
+    .card .back p {
+        font-size: 0.6rem; /* ลดขนาดตัวอักษร */
+        text-align: justify;
+        line-height: 1.2;
+        padding: 0.2rem; /* ลด padding */
+        color: rgba(7, 7, 50, 0.855);
+        max-width: 250px; /* ลดความกว้างเนื้อหา */
+        font-family: 'Playpen Sans';
+    }
+    
+}
+
 
 
 /* ..................................................skill.................................*/
@@ -499,6 +672,39 @@ nav {
 }
 
 
+@media screen and (max-width: 680px) {
+
+    .sliim {
+        height: 150px; /* ลดความสูง */
+        margin: auto;
+        position: relative;
+        background-color: #fffdf7;
+    }
+    
+    .listim {
+        position: absolute;
+        top: 50%; /* จัดให้อยู่กลางแนวตั้ง */
+        left: 35%; /* จัดให้อยู่กลางแนวนอน */
+        transform: translate(-50%, -50%); /* จัดตำแหน่งให้ตรงกลาง */
+        display: flex;
+        height: 100%;
+        width: max-content;
+        transition: transform 0.5s ease-in-out;
+        background-color: #fffdf7;
+    }
+    
+    .imitem {
+        width: 100px; /* ลดขนาดภาพ */
+        height: 100px;
+        margin: 0 35px; /* ลดระยะห่างระหว่างภาพ */
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        background-color: #fffdf7;
+    }
+    
+
+    
+}
+
 /* ....................... contact ....................*/
 
 
@@ -606,6 +812,109 @@ button:hover {
 
 .contact-info a:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 680px){
+    .contact {
+        padding: 0.5rem 1rem; /* ลดระยะห่าง */
+        background: #fdf9ee;
+        width: 100vw;
+    }
+    
+    .maincolum {
+        display: flex;
+        justify-content: space-between;
+        gap: 100px; /* ลดระยะห่างระหว่างคอลัมน์ */
+    }
+    
+    .column {
+        flex: 1;
+        min-width: 200px; /* ลดความกว้างของคอลัมน์ */
+        text-align: center;
+    }
+    
+    h1 {
+        text-align: center;
+        color: rgba(7, 7, 50, 0.855);
+        font-size: 2rem; /* ลดขนาดฟอนต์ */
+        padding-right: 20rem; /* ลดระยะห่างด้านขวา */
+        font-family: 'Knewave';
+        font-weight: 300;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    input, textarea {
+        margin-bottom: 10px; /* ลดระยะห่างระหว่างฟอร์ม */
+        padding: 4px;  /* ลดการ padding */
+        border: none;
+        border-bottom: 2px solid rgba(7, 7, 50, 0.855);
+        font-size: 14px; /* ลดขนาดฟอนต์ */
+        width: 100%;
+        background-color: transparent;
+        font-family: 'Playpen Sans';
+    }
+    
+    input:focus, textarea:focus {
+        outline:none;
+        border-color: #b55163;
+        box-shadow: none;
+    }
+    
+    input::placeholder, textarea::placeholder {
+        color: rgba(7, 7, 50, 0.855);
+        font-family: 'Playpen Sans';
+    }
+    
+    button {
+        padding: 8px 12px; /* ลดขนาด padding */
+        background-color: rgba(7, 7, 50, 0.855);
+        color: #fffdf7;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px; /* ลดขนาดฟอนต์ */
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-family: 'Playpen Sans';
+    }
+    
+    button:hover {
+        background-color:#b55163;
+        color: #fffdf7;
+    }
+    
+    .contact-info {
+        color: rgba(7, 7, 50, 0.855);
+    }
+    
+    .contact-info h1 {
+        font-size: 2.5rem; /* ลดขนาดฟอนต์ */
+    }
+    
+    .contact-info p {
+        margin: 4px 0; /* ลดระยะห่าง */
+        font-family: 'Playpen Sans';
+        text-align: justify;
+        line-height: 1.4; /* ลดระยะห่างบรรทัด */
+        letter-spacing: 0.5px; /* ลดระยะห่างระหว่างตัวอักษร */
+        font-size: 0.7rem; /* ลดขนาดฟอนต์ */
+    }
+    
+    .contact-info a {
+        color: rgba(7, 7, 50, 0.855);
+        text-decoration: none;
+        font-family: 'Playpen Sans';
+    }
+    
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+    
+
 }
 
 
