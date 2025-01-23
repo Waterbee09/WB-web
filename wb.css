@@ -171,7 +171,7 @@ nav {
     font-family: 'Playpen Sans';
     
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 600px) {
 
     .textmain{
         position: relative;
@@ -426,7 +426,7 @@ nav {
     font-size: 0.8rem;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 600px) {
 
     .concon {
         display: grid;
@@ -672,7 +672,7 @@ nav {
 }
 
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 600px) {
 
     .sliim {
         height: 150px; /* ลดความสูง */
@@ -814,7 +814,7 @@ button:hover {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 680px){
+@media screen and (max-width: 600px){
     .contact {
         padding: 0.5rem 1rem; /* ลดระยะห่าง */
         background: #fdf9ee;
