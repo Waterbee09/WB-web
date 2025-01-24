@@ -74,6 +74,82 @@ nav {
     background-color: #b55163;
 }
 
+
+.ham-menu {
+    display: none;
+    cursor : pointer;
+    margin-left: auto; /* ดัน Hamburger menu ไปทางขวาสุด */
+    
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+/* Hamburger menu styles for small screens */
+@media screen and (max-width: 699px) {
+    .navcon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ham-menu {
+        display: inline-block;
+        align-items: left;
+        padding-left: 90rem;
+    }
+
+    .manu {
+        display: none;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #faf7ed;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .manu.menu-active {
+        display: flex;
+    }
+
+    .manu li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .manu li a {
+        color: rgba(7, 7, 50, 0.855);
+        text-decoration: none;
+        font-weight: bold;
+        font-family: 'Playpen Sans';
+    }
+}
+
+
+
  /*................................page1.................................*/
 
 
@@ -171,79 +247,90 @@ nav {
     font-family: 'Playpen Sans';
     
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 499px) {
 
+    
     .textmain{
         position: relative;
-        width: 100vw;
-        height: 100vh;
+        width: 400vw;
+        height: 150vh;
         overflow: hidden;
         background-image: url('bg1.png');
         background-color: #fffdf7;
         background-attachment: fixed; /* ทำให้ภาพเลื่อนช้ากว่าเนื้อหา */
         background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
         background-size: contain; /* ขนาดของภาพจะปรับตามขนาดภาพ (เต็มพื้นที่ แต่ไม่ครอบตัด) */
-        background-position-y: 200px; /* จัดตำแหน่งของภาพให้อยู่ตรงกลาง */
-        background-position-x: -230px;
+        background-position-y: 100px; /* จัดตำแหน่งของภาพให้อยู่ตรงกลาง */
+        background-position-x: 230px;
     }
  
-    .maintext {
-        display: flex;
-        flex-direction: column; /* เรียงในแนวตั้ง */
-        align-items: flex-start; /* จัดให้อยู่ชิดซ้าย */
-        box-sizing: border-box; /* ป้องกัน padding เกิน */
-    }
+    /* Main content */
+.maintext {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex; /* ใช้ Flexbox */
+    justify-content: space-between; /* จัดให้สองฝั่ง */
+    align-items: center; /* จัดตำแหน่งตรงกลางแนวตั้ง */
     
-    .text h1 {
-        font-size: 3.5rem;
-        color: rgba(7, 7, 50, 0.855);
-        font-family: 'Knewave';
-        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-        margin: 0 auto; /* ตั้งข้อความให้อยู่ตรงกลางแนวนอน */
-        margin-left: 1.5rem;
-    }
+}
+
+
+/* จัดตำแหน่ง "Hello, I'm Namphung!" กลางจอด้านซ้าย */
+.text {
+
+    flex: 0; /* กำหนดให้ฝั่งซ้ายเต็มพื้นที่ */
+    padding-top: 10rem;
+    padding-left: 10rem;
+    font-family: 'Playpen Sans';
+}
+
+
+.text h1 {
+    font-size: 5rem;
+    font-weight: 400;
+    margin-top: 5rem;
+    color:rgba(7, 7, 50, 0.855);
+    font-family: 'Knewave';
+}
+
+.text p {
+    font-size: 0.8rem;
+    margin: 1rem 0;
+    color: rgba(7, 7, 50, 0.855);
+    font-family: 'Playpen Sans';
+    text-align: justify; /* จัดข้อความให้กระจายเต็มความกว้าง */
+    line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+    max-width: 360px;
     
-    .text p {
-        font-size: 0.8rem;
-        color: rgba(7, 7, 50, 0.855);
-        font-family: 'Playpen Sans';
-        text-align: center; /* จัดข้อความให้อยู่ชิดซ้าย */
-        /*margin: 1px 20px; /* ระยะห่างซ้าย-ขวา 10px */
-        
-    }
+}
+
+/* จัดตำแหน่ง "Education" กลางจอด้านขวา */
+.ed {
+    width: 100%; /* ให้กว้างเท่ากับ parent */
+    flex: 1; /* กำหนดให้ฝั่งขวาเต็มพื้นที่ */
+    /*text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    padding-left: 30rem; /* เพิ่มระยะห่างจากขอบขวา */
+    padding-top:  15rem;
+}
+
+.ed h1 {
+    font-size: 2rem;
+    color: rgba(7, 7, 50, 0.855);
+    font-weight: bold;
+    font-family:'Playpen Sans';
+}
+
+.ed p1{
+    color: rgba(7, 7, 50, 0.855);
+    font-size: 0.8rem;
+    text-align: left;
+    margin-top: 1rem;
+    text-align: justify; /* จัดข้อความให้กระจายเต็มความกว้าง */
+    line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
+    font-family: 'Playpen Sans';
     
-    .text .bottom {
-        align-items: left ;/* จัดปุ่มให้อยู่ตรงกลาง */
-        margin-top: 1rem;
-    }
-    
-    .ed {
-        width: 100%; /* ให้กว้างเท่ากับ parent */
-        text-align: center; /* จัดข้อความให้อยู่ชิดซ้าย */
-        padding: 0 10px; /* เพิ่มระยะ padding ซ้ายและขวา */
-        box-sizing: border-box; /* ป้องกัน padding เกิน */
-    }
-    
-    .ed h1 {
-        font-size: 1rem;
-        color: rgba(7, 7, 50, 0.855);
-        font-family: 'Playpen Sans';
-        margin-top: 2rem; /* เพิ่มระยะห่างด้านบน */
-        margin-bottom: 1rem; /* เพิ่มระยะห่างด้านล่าง */
-        margin-left: 15rem;
-    
-    }
-    
-    .ed p1 {
-        color: rgba(7, 7, 50, 0.855);
-        font-size: 0.8rem;
-        text-align: justify; /* จัดข้อความให้กระจายเต็มความกว้าง */
-        line-height: 1.5; /* เพิ่มระยะห่างระหว่างบรรทัด */
-        font-family: 'Playpen Sans';
-        margin: 0 10px; /* ระยะห่างซ้าย-ขวา */
-        word-wrap: break-word; /* บังคับตัดคำหากข้อความยาวเกิน */
-        
-    }
+}
 
     .text .bottom {
         display: none;
@@ -426,12 +513,18 @@ nav {
     font-size: 0.8rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 499px) {
 
+    .ex{
+
+        position: relative;
+        width: 400vw;
+        height: 100vh;
+    }
     .concon {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.2rem;
+        gap: 10rem;
         width: 30%; /* ทำให้กริดมีความกว้างเต็มพื้นที่ */
         height: 30%;
         margin: 0 auto; /* ทำให้กริดอยู่กึ่งกลางแนวนอน */
@@ -460,8 +553,8 @@ nav {
     
     /* ลดขนาดการ์ด */
     .card .front, .card .back {
-        width: 180px; /* ลดความกว้าง */
-        height: 300px; /* ลดความสูง */
+        width: 220px; /* ลดความกว้าง */
+        height: 400px; /* ลดความสูง */
         transform-style: preserve-3d;
         transition: transform 0.5s ease-in-out;
         cursor: pointer;
@@ -672,10 +765,16 @@ nav {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 499px) {
+
+    .learnmore{
+        position: relative;
+        width: 400vw;
+        height: 80vh;
+    }
 
     .sliim {
-        height: 150px; /* ลดความสูง */
+        height: 50; /* ลดความสูง */
         margin: auto;
         position: relative;
         background-color: #fffdf7;
@@ -684,7 +783,7 @@ nav {
     .listim {
         position: absolute;
         top: 50%; /* จัดให้อยู่กลางแนวตั้ง */
-        left: 35%; /* จัดให้อยู่กลางแนวนอน */
+        left: 30%; /* จัดให้อยู่กลางแนวนอน */
         transform: translate(-50%, -50%); /* จัดตำแหน่งให้ตรงกลาง */
         display: flex;
         height: 100%;
@@ -702,6 +801,38 @@ nav {
     }
     
 
+    .butt {
+
+        position: absolute;
+        top: 85%;
+        left: 5%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        opacity: 0.9; /* 0 = โปร่งใส 100%, 1 = เห็นชัด 100% */
+    }
+    
+    .butt button {
+    
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color:rgba(7, 7, 50, 0.855);
+        color: #fffdf7;
+        font-weight: 800;
+        font-size: 1rem;
+        border: none;
+    }
+    
+    .dots {
+      
+        display: none;
+    }
+    
+    .dots li {
+    
+    display: none;
+    }
     
 }
 
@@ -814,23 +945,25 @@ button:hover {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 499px){
+
     .contact {
-        padding: 0.5rem 1rem; /* ลดระยะห่าง */
-        background: #fdf9ee;
-        width: 100vw;
+        padding: 1rem 2rem;
+        
+        width: 400vw;
     }
-    
     .maincolum {
         display: flex;
         justify-content: space-between;
         gap: 100px; /* ลดระยะห่างระหว่างคอลัมน์ */
+        
     }
     
     .column {
         flex: 1;
         min-width: 200px; /* ลดความกว้างของคอลัมน์ */
         text-align: center;
+        
     }
     
     h1 {
@@ -935,4 +1068,27 @@ button:hover {
 
 #backToTop:hover {
     background-color: rgb(181, 81, 99);
+}
+
+@media screen and (max-width : 499px) {
+
+    #backToTop {
+        display: none; /* ซ่อนปุ่มเริ่มต้น */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(7, 7, 50, 0.855);
+        color: #fffdf7;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20%;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 1000; /* ทำให้ปุ่มแสดงอยู่เหนือองค์ประกอบอื่น */
+    }
+    
+    #backToTop:hover {
+        background-color: rgb(181, 81, 99);
+    }
+    
 }
