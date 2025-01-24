@@ -117,3 +117,17 @@ window.addEventListener("scroll", () => {
         typeH1();
     }
 });
+
+
+function toggerham(x) {
+    x.classList.toggle("change");
+
+    let mymenu = document.getElementById('my');
+    if (mymenu.classList.contains('menu-active')) {
+        mymenu.classList.remove('menu-active');
+    } else {
+        mymenu.classList.add('menu-active');
+    }
+}
+
+  
